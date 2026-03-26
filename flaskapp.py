@@ -151,16 +151,19 @@ def time_form():
 @app.route("/timequerytextbox", methods=['POST'])
 def time_form_post():
     # your code here
-    rows = execute_query("""
-        SELECT ArtistId, Artist.Name, Track.Name, UnitPrice, Milliseconds
-        FROM Artist
-        JOIN Album USING (ArtistID)
-        JOIN Track USING (AlbumID)
-        WHERE Milliseconds = %s
-        ORDER BY Milliseconds DESC
-        LIMIT 500
-    """, (str(time),))
-    return display_html(rows)
+
+    # rows = execute_query("""
+    #     SELECT ArtistId, Artist.Name, Track.Name, UnitPrice, Milliseconds
+    #     FROM Artist
+    #     JOIN Album USING (ArtistID)
+    #     JOIN Track USING (AlbumID)
+    #     WHERE Milliseconds = %s
+    #     ORDER BY Milliseconds DESC
+    #     LIMIT 500
+    # """, (str(time),))
+    time = request.form['text']
+    return viewtime(time)
+
 # ---------------------------------------------------------------------------
 # Run the app
 # ---------------------------------------------------------------------------
