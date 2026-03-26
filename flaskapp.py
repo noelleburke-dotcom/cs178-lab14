@@ -76,7 +76,7 @@ def viewdb():
 @app.route("/artistquery/<artist_id>")
 def artistquery():
 
-    rows = execute_query("""""
+    rows = execute_query(""""
         SELECT Track.Name
         FROM Artist
         JOIN Album USING (ArtistID)
