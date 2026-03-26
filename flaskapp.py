@@ -136,16 +136,12 @@ def viewtime(time):
 @app.route("/timequerytextbox", methods=['GET'])
 def time_form():
     # your code here
-    rows = execute_query("""
-        SELECT ArtistId, Artist.Name, Track.Name, UnitPrice, Milliseconds
-        FROM Artist
-        JOIN Album USING (ArtistID)
-        JOIN Track USING (AlbumID)
-        WHERE Milliseconds = %s
-        ORDER BY Milliseconds DESC
-        LIMIT 500
-    """, (str(time),))
-    return display_html(rows)
+    """
+    GET handler: renders the empty search form.
+    The 'fieldname' variable fills in the label text in textbox.html.
+    """
+    return render_template('textbox.html', fieldname="Price")
+
 
     
 @app.route("/timequerytextbox", methods=['POST'])
@@ -161,8 +157,8 @@ def time_form_post():
     #     ORDER BY Milliseconds DESC
     #     LIMIT 500
     # """, (str(time),))
-    time = request.form['text']
-    return viewtime(time)
+    text = request.form['text']
+    return viewprices(text)
 
 # ---------------------------------------------------------------------------
 # Run the app
