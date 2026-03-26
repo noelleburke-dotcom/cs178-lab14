@@ -57,7 +57,6 @@ def index():
 
 # TODO: Section 1 — add your dbTesting code to dbTesting.py (not here)
 
-# TODO: Section 2 — add your /viewdb route here
 @app.route("/viewdb")
 def viewdb():
     """
