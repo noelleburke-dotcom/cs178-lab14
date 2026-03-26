@@ -79,6 +79,8 @@ def artistquery():
     rows = execute_query("""""
         SELECT Track.Name
         FROM Artist
+        JOIN Album USING (ArtistID)
+        JOIN Track Using (AlbumID)                 
         WHERE ArtistId= %s
         """,
         (artist_id,)
