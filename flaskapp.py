@@ -134,7 +134,7 @@ def viewtime(time):
     return display_html(rows)
 
 @app.route("/timequerytextbox", methods=['GET'])
-def time_form(time):
+def time_form():
     # your code here
     rows = execute_query("""
         SELECT ArtistId, Artist.Name, Track.Name, UnitPrice, Milliseconds
@@ -149,7 +149,7 @@ def time_form(time):
 
     
 @app.route("/timequerytextbox", methods=['POST'])
-def time_form_post(time):
+def time_form_post():
     # your code here
     rows = execute_query("""
         SELECT ArtistId, Artist.Name, Track.Name, UnitPrice, Milliseconds
