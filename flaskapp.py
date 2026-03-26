@@ -81,9 +81,9 @@ def artistquery():
         FROM Artist
         JOIN Album USING (ArtistID)
         JOIN Track Using (AlbumID)                 
-        WHERE ArtistId= %s
-        """,
+        WHERE ArtistId= %s,
         (artist_id,)
+    """
     )
     return display_html(rows)
 # TODO: Section 3 — add your /pricequerytextbox GET and POST routes here
