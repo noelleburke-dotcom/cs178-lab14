@@ -157,7 +157,7 @@ def time_form_post():
     #     ORDER BY Milliseconds DESC
     #     LIMIT 500
     # """, (str(time),))
-    text = request.form['text']
+    text = request.form['time']
     return viewprices(text)
 
 # ---------------------------------------------------------------------------
